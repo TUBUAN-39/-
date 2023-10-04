@@ -1,0 +1,27 @@
+#st_btn{
+    font-size: 2.5rem;
+    color: #00afcc;
+    /* position: absolute;
+    top: 1rem;
+    left: 22%; */
+}
+/* #pre_btn{
+    position: relative;
+    top: 20%;
+} */
+
+#pre_btn{
+    visibility: hidden;
+    font-size: 2rem;
+}
+#ta {
+    visibility: hidden;
+    background-color: #fff;
+    border: double 4px #00ff00;
+    border-collapse: collapse;
+}
+td ,th{
+    background-color: #fff;
+    border: double 4px #00ff00;
+    border-collapse: collapse;
+}
