@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="practical_uses_004.css" rel="stylesheet">
+</head>
+<body>
+    <h1>クイズ!</h1>
+    <button onclick="visible();first_ques()" id="st_bt">クイズスタート!(全10門)</button>
+    <div id="ques_area">
+        <p id="timer">のこり<span id="second"></span>秒</p>
+        <p id="ques_tx"></p>
+        <input type="radio" name="ques" id="" value="1"><label id="ques_tx1"></label><br>
+        <input type="radio" name="ques" id="" value="2"><label id="ques_tx2"></label><br>
+        <input type="radio" name="ques" id="" value="3"><label id="ques_tx3"></label><br>
+        <input type="radio" name="ques" id="" value="4"><label id="ques_tx4"></label><br><br>
+        <button id="ok" onclick="enter()">OK</button>
+        <button id="next" onclick="next()">次の問題へ</button>
+        <p id="res"></p>
+        <p id="ans_tx"></p>
+        <p id="score">スコア：<span id="num"></span>&sol;10</p>
+    </div>
+    <script src="practical_uses_004.js"></script>
+</body>
+</html>
