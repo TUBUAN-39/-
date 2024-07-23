@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.8.0.min.css" />
+    <link rel="stylesheet" href="form.css"/>
+    <title>ログインフォーム</title>
+</head>
+
+<body>
+    <div id="main">
+        <div id="formBox">
+            <form action="transitionPages/login.php" method="POST" name="form" onsubmit="return nullCheck()">
+                <input type="text" name="username" placeholder="ユーザー名を入力(必須)" class="inputs" id="field1"><br>
+                <input type="password" name="password" placeholder="パスワードを入力(必須)" class="inputs" id="field2"><br>
+                <button id="inputButton" type="submit">ログイン</button><br>
+            </form>
+            <a href="transitionPages/registerForm.html"><div id="registerLink">新規登録</div></a>
+        </div>
+        <div id="quote">used&nbsp;by&nbsp;<a href="https://yegor256.github.io/tacit/">tacit</a></div>
+    </div>
+    <script src="nullCheck.js"></script>
+</body>
+
+</html>
