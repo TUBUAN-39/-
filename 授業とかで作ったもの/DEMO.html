@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ジオコーディングAPIデモ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.8.1.min.css" />
+    <link href="https://unpkg.com/maplibre-gl/dist/maplibre-gl.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div style="margin-left: 20%; width: 60%; text-align: center;">
+        <h1>住所変換デモ</h1>
+        <input type="text" id="address" placeholder="ここにテキストを入力">
+        <button id="exec">住所変換</button>
+        <p id="output"></p>
+        <p id="level"></p>
+        <div id="map" style="width: 100%; height: 500px"></div>
+        <a href="https://github.com/geolonia/community-geocoder/blob/master/README.md">APIドキュメント</a>
+    </div>
+
+    <script>
+        let seikika = null
+        document.getElementById('exec').addEventListener('click', () => {
+            if (document.getElementById('address').value) {
+                getLatLng(document.getElementById('address').value, (latlng) => {
+                    seikika = latlng.level
+                    if (seikika === 0) {
+                        document.getElementById("level").innerHTML = "都道府県も判別できなかった。"
+                    } else if (seikika === 1) {
+                        document.getElementById("level").innerHTML = "都道府県まで判別できた。"
+                    } else if (seikika === 2) {
+                        document.getElementById("level").innerHTML = " 市区町村まで判別できた。"
+                    } else if (seikika === 3) {
+                        document.getElementById("level").innerHTML = " 町丁目まで判別できた。"
+                    }
+                    if (latlng.lat == null || latlng.lng == null) {
+                        document.getElementById("output").innerHTML = "緯度：データ所得失敗" + "<br>経度：データ取得失敗"
+                    } else {
+                        document.getElementById("output").innerHTML = "緯度：" + latlng.lat + "<br>経度：" + latlng.lng
+                    }
+
+                    const map = new maplibregl.Map({
+                        style: 'https://tiles.openfreemap.org/styles/liberty',
+                        center: [latlng.lng, latlng.lat],
+                        zoom: 15,
+                        container: 'map',
+                    })
+                })
+            }
+        })
+    </script>
+    <script src="https://cdn.geolonia.com/community-geocoder.js"></script>
+    <script src="https://unpkg.com/maplibre-gl/dist/maplibre-gl.js"></script>
+</body>
+
+</html>
